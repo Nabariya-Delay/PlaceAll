@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>PlaceAll</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="app">
+    <div class="header">
+        <h1>PlaceAll</h1>
+        <button id="clearAll" class="header-btn" title="すべてクリア">クリア</button>
+    </div>
+    <div class="content">
+        <div class="drop-zone-wrapper">
+            <div id="dropZone" class="drop-zone">
+                <div class="drop-zone-text">ここにドロップ</div>
+                <div class="drop-zone-hint">PDF, AI, EPS, PNG, JPG, PSD, TIFF...</div>
+            </div>
+            <input type="file" id="fileInput" multiple accept=".pdf,.ai,.eps,.svg,.png,.jpg,.jpeg,.gif,.tif,.tiff,.psd,.bmp,.webp" style="display:none">
+        </div>
+        <div id="fileList" class="file-list"></div>
+        <div id="optionsSection" class="options-section">
+            <div class="option-row">
+                <span class="option-label">折返し</span>
+                <input id="colsInput" type="number" class="spacing-input" value="3" min="1" max="50" step="1">
+                <span class="spacing-unit">列</span>
+            </div>
+            <div class="option-row">
+                <span class="option-label">間隔</span>
+                <input id="spacingInput" type="number" class="spacing-input" value="5" min="0" max="200" step="1">
+                <span class="spacing-unit">mm</span>
+            </div>
+            <label class="option-check">
+                <input type="checkbox" id="createAB" checked>
+                <span>アートボードを作成</span>
+            </label>
+        </div>
+    </div>
+    <div class="bottom-panel">
+        <div class="action-bar">
+            <button id="placeBtn" class="place-btn" disabled>配置する</button>
+        </div>
+        <div id="statusBar" class="status-bar">
+            <div id="statusMessage" class="status-message"></div>
+            <div id="progressBar" class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/CSInterface.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
