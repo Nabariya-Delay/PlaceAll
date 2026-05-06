@@ -18,44 +18,6 @@ Illustrator上で複数のファイル（画像、PDFなど）を一括で配置
 * **システム全体（全ユーザー）へのインストール**
   `C:\Program Files (x86)\Common Files\Adobe\CEP\extensions\`
 
----
-
-## 未署名エクステンションの有効化（デバッグモード）
-
-未署名の状態であるため、そのままではIllustratorに読み込まれない。OSの設定で **PlayerDebugMode（デバッグモード）** をオンにする必要がある。
-
-### Mac の場合
-ターミナル（Terminal.app）を開き、以下のコマンドをコピー＆ペーストして実行（Enter）してください。
-
-```bash
-defaults write com.adobe.CSXS.11 PlayerDebugMode 1
-```
-> **注意**: `CSXS.11` の数字部分はIllustratorのバージョン（内部のCEPバージョン）によって異なる。Illustrator 2022以降は `11` が標準だが、もしエクステンションが表示されない場合は、以下のようによく使われるバージョンをすべてオンにしておくといい。
-```bash
-defaults write com.adobe.CSXS.9 PlayerDebugMode 1
-defaults write com.adobe.CSXS.10 PlayerDebugMode 1
-defaults write com.adobe.CSXS.11 PlayerDebugMode 1
-defaults write com.adobe.CSXS.12 PlayerDebugMode 1
-```
-コマンド実行後、**Macを再起動** するか、ターミナルで `killall cfprefsd` を実行して設定を反映させる。その後、Illustratorを起動する。
-
-### Windows の場合
-コマンドプロンプトやPowerShellを開き、以下のコマンドを実行する。
-
-```cmd
-reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d "1" /f
-```
-> Mac同様、数字部分はCEPのバージョン。念のため複数バージョンで設定しておく場合は以下を実行。
-```cmd
-reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.9" /v PlayerDebugMode /t REG_SZ /d "1" /f
-reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.10" /v PlayerDebugMode /t REG_SZ /d "1" /f
-reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d "1" /f
-reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.12" /v PlayerDebugMode /t REG_SZ /d "1" /f
-```
-実行後、Illustratorを再起動。
-
----
-
 ## 使い方
 
 1. インストールおよびデバッグモードの有効化が完了したら、Adobe Illustratorを起動する。
